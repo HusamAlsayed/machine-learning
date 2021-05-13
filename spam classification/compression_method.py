@@ -36,6 +36,7 @@ class SpamClassifier:
     return round(ans/len(X_test),3)
 
   def predict(self,X_test):
+    pr = []
     for index,content in enumerate(X_test):
       sz = []
       for l in self.labels:
@@ -51,5 +52,6 @@ class SpamClassifier:
       predict_value = 'ham'
       if sz[0] > sz[1]:
         predict_value = 'spam'
-      return predict_value
+      pr.append(predict_value)
+    return pr
    
